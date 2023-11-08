@@ -1,4 +1,15 @@
-﻿@page "/page2"
-<!-- Page route. Routes can't be conflicting * -->
+﻿@page "/page2/{Param1}"
+<!-- Parameter name must match. * -->
+
+@page "/page2"
+<!-- A page can have multiple routes. -->
 
 <h3>Page2</h3>
+
+<p>@Param1</p>
+
+@code{
+	// Parameter must have 3 things: it must have attribute, 
+	// it must be public and it must have a getter and a setter.
+	[Parameter] public string Param1 { get; set; }
+}
