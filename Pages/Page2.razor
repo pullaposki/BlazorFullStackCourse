@@ -1,15 +1,42 @@
-﻿@page "/page2/{Param1}"
-<!-- Parameter name must match. * -->
+﻿<!-- Parameter name must match. * -->
+@page "/page2/{Param1}"
 
-@page "/page2"
 <!-- A page can have multiple routes. -->
+@page "/page2"
+
+<!-- Gives HTTP utility, which we need  -->
+@using System.Web;
+
+<!--Inject a service into this component.-->
+@inject NavigationManager nav;
 
 <h3>Page2</h3>
 
 <p>@Param1</p>
 
+<p><button @onclick="( async () => await GetParameters() )">Get</button></p>
+
+<p>@_param2</p>
+
 @code{
 	// Parameter must have 3 things: it must have attribute, 
 	// it must be public and it must have a getter and a setter.
 	[Parameter] public string Param1 { get; set; }
+
+
+	string _param2 = "";
+
+	Task GetParameters()
+	{
+		// Create URI
+		var uri = new Uri(nav.Uri);
+
+		// Get the *query* part of the URI. It's a kind of dictionary.
+		var queryParams = HttpUtility.ParseQueryString(uri.Query);
+
+		// "param1" can be assigned in the browser.
+		_param2 = queryParams["param1"];
+
+		return Task.CompletedTask;
+	}
 }
