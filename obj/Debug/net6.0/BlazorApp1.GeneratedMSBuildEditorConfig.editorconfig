@@ -24,12 +24,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Pages/Page2.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZTIucmF6b3I=
+[F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Pages/NewTestComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3VGVzdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Pages/TestPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdFBhZ2UucmF6b3I=
+[F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Pages/TestComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/_Imports.razor]
