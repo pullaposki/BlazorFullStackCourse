@@ -1,0 +1,22 @@
+﻿<p><button @onclick = "@InvokeValueChangedAsync"></button></p>
+<p>@Value1</p>
+
+@code {
+	[Parameter] 
+	public string Value1 { get; set; }
+
+	// The word before Changed must match the parameter it references.
+	// Must also have keyword Changed.
+	[Parameter]	
+	public EventCallback<string> Value1Changed { get; set; }
+
+	async Task InvokeValueChangedAsync()
+	{
+		await Value1Changed.InvokeAsync("test text");
+	}
+
+}
+
+<!-- When you click the button, it triggers the InvokeValueChangedAsync method, 
+which then invokes the Value1Changed event with the argument "test text". 
+This can be used to pass the string "test text" back to the parent component. -->
