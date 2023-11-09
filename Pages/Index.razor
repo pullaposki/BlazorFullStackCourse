@@ -1,4 +1,17 @@
 ﻿@page "/"
+@inject NavigationManager _nv
 
 <p>Page 1</p>
-<p><a href="/page2">To Page 2</a></p>
+
+<!--<button @onclick="@NavigateToTestPage">To Test Page</button>-->
+<button @onclick="@( () => _nv.NavigateTo("/testpage") )">To Test Page Using C#</button>
+
+
+@code{
+
+	void NavigateToTestPage()
+	{
+		_nv.NavigateTo("/testpage");
+	}
+
+}
