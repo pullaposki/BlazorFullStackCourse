@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmluZHNUZXN0Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Pages/CustomEventsTestComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tRXZlbnRzVGVzdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

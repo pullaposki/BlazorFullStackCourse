@@ -1,19 +1,10 @@
 ﻿@page "/"
 
-<!-- When you write into the input field, _testValue is updated and vice verca. -->
-<p><input @bind="@_testValue" /></p>
+<!--CustomEventsTestComponent is included in this parent component because of the tag.-->
+<CustomEventsTestComponent OnSend="@( (arg) => { _s1 = arg;} )"></CustomEventsTestComponent>
 
-<!-- Binds other components Value1 parameter to _testValue Property.
-This means that when _testValue changes, Value1 is updated, and vice versa.-->
-<BindsTestComponent @bind-Value1="@_testValue"></BindsTestComponent>
-
-<!-- The previous code defined a BindsTestComponent with a bindable parameter Value1. 
-When you include BindsTestComponent in another component and bind Value1 to a field (like _testValue), 
-any changes to _testValue will also change Value1 in BindsTestComponent, and vice versa.
-So, if you type into the input field in this component, _testValue will be updated, which will then update Value1 in BindsTestComponent. 
-If Value1 is changed inside BindsTestComponent (perhaps by a method in BindsTestComponent), _
-testValue will be updated in this component, and the new value will be displayed in the input field. -->
+<p>@_s1</p>
 
 @code{
-	string _testValue = "lalalala";
+	string _s1 = "";
 }
