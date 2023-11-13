@@ -1,8 +1,39 @@
 ﻿@page "/"
 
+<BlazorApp1.Components.NewItemSetupComponent OnProductSubmit="@( async (param) => await InsertNewProduct(param))">
 
-<BlazorApp1.Components.NewItemSetupComponent></BlazorApp1.Components.NewItemSetupComponent>
+</BlazorApp1.Components.NewItemSetupComponent>
 
-@code{
-	
+
+<table>
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Asking Price</td>
+			<td>Units</td>
+			<td>Total</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Products)
+		{
+			<!--For each item in Products, a ListItemComponent is created with a ListProduct parameter set to the current item: 
+			<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>. 
+			This suggests that ListItemComponent is a Blazor component that takes a Product object as a parameter and displays it in some way.-->
+			<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>
+		}
+	</tbody>
+</table>
+
+@code
+{
+	List<DataModels.Product> Products = new List<DataModels.Product>();
+
+	// This is an event callback that gets raised OnProductSubmit.
+	// OnProductSubmit event sends a parameter, which is inserted as a parameter for this function.
+	Task InsertNewProduct(DataModels.Product product)
+	{
+		Products.Add(product);
+		return Task.CompletedTask;
+	}
 }

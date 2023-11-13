@@ -5,8 +5,12 @@
 <p><input @bind-value="@ProductInstance.AskingPrice" @bind-value:event = "oninput" /></p>
 <p>Units</p>
 <p><input @bind-value="@ProductInstance.Units" @bind-value:event="oninput" /></p>
-<p>Total</p>
-<p>€@ProductInstance.Total</p>
+
+<!--In Blazor, the UI is updated whenever the state of a component changes. 
+In this case, ProductInstance.Total is part of the state of your component. 
+When ProductInstance.Total changes, Blazor re-renders the component to reflect the new state.-->
+<p>Total in euros</p>
+<p>@ConvertToDollars(ProductInstance.Total)</p>
 
 <!--<p><input @bind-value="@ProductInstance.Units" @bind-value:event="oninput" /></p>: This is an input element inside a paragraph element. 
 The @bind-value directive creates a two-way data binding on the value property of the input element. 
@@ -38,5 +42,10 @@ So, you can assign HandleSubmit directly to onclick, and Blazor will await the T
 	{
 		await OnProductSubmit.InvokeAsync(ProductInstance);
 		ProductInstance = new DataModels.Product();
+	}
+
+	double ConvertToDollars(int cents)
+	{
+		return Convert.ToDouble(cents) / 100;
 	}
 }
