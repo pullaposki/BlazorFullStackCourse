@@ -1,7 +1,0 @@
-﻿<!-- Fire asynchronous, anonymous method on button click which invokes OnSend delegate asynchronously. -->
-<p><button @onclick = "@(async () => await OnSend.InvokeAsync("test text"))">Send Text</button></p>
-
-@code {
-	[Parameter] 
-	public EventCallback <string> OnSend { get; set; }
-}

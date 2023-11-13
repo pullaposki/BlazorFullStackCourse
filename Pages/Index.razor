@@ -1,10 +1,16 @@
 ﻿@page "/"
 
-<!--CustomEventsTestComponent is included in this parent component because of the tag.-->
-<CustomEventsTestComponent OnSend="@( (arg) => { _s1 = arg;} )"></CustomEventsTestComponent>
+<!--<TestComponent @ref="@_testComponentRef"></TestComponent> is a component tag for TestComponent. 
+The @ref attribute is used to get a reference to the component instance (_testComponentRef), which can be used to invoke methods on the component.-->
+<TestComponent @ref = "@_testComponentRef"></TestComponent>
 
-<p>@_s1</p>
 
 @code{
-	string _s1 = "";
+	TestComponent _testComponentRef;
+
+	Task TaskMethodIndex()
+	{
+		_testComponentRef.TaskMethod("");
+		return Task.CompletedTask;
+	}
 }
