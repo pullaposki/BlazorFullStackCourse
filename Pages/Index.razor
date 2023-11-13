@@ -1,16 +1,8 @@
 ﻿@page "/"
 
-<!--<TestComponent @ref="@_testComponentRef"></TestComponent> is a component tag for TestComponent. 
-The @ref attribute is used to get a reference to the component instance (_testComponentRef), which can be used to invoke methods on the component.-->
-<TestComponent @ref = "@_testComponentRef"></TestComponent>
 
+<BlazorApp1.Components.NewItemSetupComponent></BlazorApp1.Components.NewItemSetupComponent>
 
 @code{
-	TestComponent _testComponentRef;
-
-	Task TaskMethodIndex()
-	{
-		_testComponentRef.TaskMethod("");
-		return Task.CompletedTask;
-	}
+	
 }

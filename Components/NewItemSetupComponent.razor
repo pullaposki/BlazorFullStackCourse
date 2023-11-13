@@ -1,0 +1,30 @@
+﻿<!--Bind inputs to the created instance of Product-->
+<p>Item ID</p>
+<p><input @bind="@ProductInstance.Id"/></p>
+<p>Asking Price</p>
+<p><input @bind-value="@ProductInstance.AskingPrice" @bind-value = "oninput" /></p>
+<p>Units</p>
+<p><input @bind-value="@ProductInstance.Units" @bind-value="oninput" /></p>
+<p>Total</p>
+<p>€@ProductInstance.Total</p>
+
+<!--<p><input @bind-value="@ProductInstance.Units" @bind-value:event="oninput" /></p>: This is an input element inside a paragraph element. 
+The @bind-value directive creates a two-way data binding on the value property of the input element. 
+It means that the value of the input element is bound to the Units property of the ProductInstance object. 
+When the user types into the input field, the Units property of the ProductInstance object is updated. Similarly, 
+if the Units property of the ProductInstance object is updated programmatically, the value of the input field will also be updated. 
+The @bind-value:event="oninput" part specifies that the binding should update the Units property of the ProductInstance object as soon as the user types into the input field 
+(as opposed to waiting until the field loses focus).-->
+
+<!--Trigger custom event on click that takes the Product instance as a parameter for it's callback-->
+<p><button @onclick="@(async()=> await OnProductSubmit.InvokeAsync(ProductInstance))">Submit</button></p>
+
+@code 
+{
+	// Create a new instance of Product
+	DataModels.Product ProductInstance = new DataModels.Product();
+
+	// Public event
+	[Parameter]
+	public EventCallback<DataModels.Product> OnProductSubmit { get; set; }
+}
