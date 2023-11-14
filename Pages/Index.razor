@@ -1,9 +1,5 @@
 ﻿@page "/"
-
-<BlazorApp1.Components.NewItemSetupComponent OnProductSubmit="@( async (param) => await InsertNewProduct(param))">
-
-</BlazorApp1.Components.NewItemSetupComponent>
-
+<BlazorApp1.Components.NewItemSetupComponent OnProductSubmit="@( async (param) => await InsertNewProduct(param))"></BlazorApp1.Components.NewItemSetupComponent>
 
 <table>
 	<thead>
@@ -11,16 +7,17 @@
 			<td>ID</td>
 			<td>Asking Price</td>
 			<td>Units</td>
-			<td>Total</td>
+			<td>Total</td>			
 		</tr>
 	</thead>
 	<tbody>
 		@foreach (var item in Products)
 		{
-			<!--For each item in Products, a ListItemComponent is created with a ListProduct parameter set to the current item: 
-			<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>. 
-			This suggests that ListItemComponent is a Blazor component that takes a Product object as a parameter and displays it in some way.-->
-			<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>
+			<tr>
+				<!--For each item in Products, a ListItemComponent is created with a ListProduct parameter set to the current item.-->
+				<td><BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent></td>
+				<td><BlazorApp1.Components.ModifyItemComponent OnModifyProduct="@( async () => await Modify())"></BlazorApp1.Components.ModifyItemComponent></td>
+			</tr>
 		}
 	</tbody>
 </table>
@@ -29,11 +26,31 @@
 {
 	List<DataModels.Product> Products = new List<DataModels.Product>();
 
-	// This is an event callback that gets raised OnProductSubmit.
-	// OnProductSubmit event sends a parameter, which is inserted as a parameter for this function.
+	DataModels.Product _savedProduct;
+
 	Task InsertNewProduct(DataModels.Product product)
 	{
 		Products.Add(product);
+		SaveProduct(product);
+		return Task.CompletedTask;
+	}
+
+	void SaveProduct(DataModels.Product product)
+	{
+		_savedProduct = product;
+		Console.WriteLine("product saved: " + product.Id);
+	}
+
+	Task Modify()
+	{
+		if(_savedProduct == null)
+		{
+			Console.WriteLine("No saved product");
+			return Task.CompletedTask;
+		}
+
+		
+		Console.WriteLine("Open product for modification : " + _savedProduct.Id);
 		return Task.CompletedTask;
 	}
 }

@@ -1,0 +1,19 @@
+﻿<p><button @onclick="FireModifyEvent">Modify</button></p>
+
+@code 
+{
+	public DataModels.Product _productToModify;
+
+	[Parameter]
+	public EventCallback<DataModels.Product> OnModifyProduct { get; set; }
+
+	// should receive the product instance on submit
+	[Parameter]
+	public DataModels.Product ProductToBeModified { get; set; }
+
+
+	async Task FireModifyEvent()
+	{
+		await OnModifyProduct.InvokeAsync(_productToModify);
+	}
+}
