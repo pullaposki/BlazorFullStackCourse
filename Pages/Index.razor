@@ -17,13 +17,47 @@
 				<!--For each item in Products, a ListItemComponent is created with a ListProduct parameter set to the current item.-->
 				<td><BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent></td>
 				<td><BlazorApp1.Components.ModifyItemComponent OnModifyProduct="@( async () => await Modify())"></BlazorApp1.Components.ModifyItemComponent></td>
+
+				
+
 			</tr>
 		}
 	</tbody>
 </table>
 
+<EditForm Model="@_savedProduct" OnValidSubmit="@(HandleValidSubmit)">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
+
+	<p>
+		<label for="id">ID: </label>
+		<InputText id="id" @bind-Value="@_savedProduct.Id" />
+	</p>
+
+	<p>
+		<label for="askingPrice">Asking Price: </label>
+		<InputNumber id="askingPrice" @bind-Value="@_savedProduct.AskingPrice" />
+	</p>
+
+	<p>
+		<label for="units">Units: </label>
+		<InputNumber id="units" @bind-Value="@_savedProduct.Units" />
+	</p>
+
+	<p>
+		<button type="submit">Submit</button>
+	</p>
+</EditForm>
+
 @code
 {
+	Task HandleValidSubmit()
+	{
+		// The product has been modified. You can save the changes here.
+		Console.WriteLine("Product modified: " + _savedProduct.Id);
+		return Task.CompletedTask;
+	}
+
 	List<DataModels.Product> Products = new List<DataModels.Product>();
 
 	DataModels.Product _savedProduct;
