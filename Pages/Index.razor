@@ -25,36 +25,43 @@
 	</tbody>
 </table>
 
-<EditForm Model="@_savedProduct" OnValidSubmit="@(HandleValidSubmit)">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
+@if (_formIsVisible)
+{
+	<EditForm Model="@_savedProduct" OnValidSubmit="@(HandleValidSubmit)">
+		<DataAnnotationsValidator />
+		<ValidationSummary />
 
-	<p>
-		<label for="id">ID: </label>
-		<InputText id="id" @bind-Value="@_savedProduct.Id" />
-	</p>
+		<p>
+			<label for="id">ID: </label>
+			<InputText id="id" @bind-Value="@_savedProduct.Id" />
+		</p>
 
-	<p>
-		<label for="askingPrice">Asking Price: </label>
-		<InputNumber id="askingPrice" @bind-Value="@_savedProduct.AskingPrice" />
-	</p>
+		<p>
+			<label for="askingPrice">Asking Price: </label>
+			<InputNumber id="askingPrice" @bind-Value="@_savedProduct.AskingPrice" />
+		</p>
 
-	<p>
-		<label for="units">Units: </label>
-		<InputNumber id="units" @bind-Value="@_savedProduct.Units" />
-	</p>
+		<p>
+			<label for="units">Units: </label>
+			<InputNumber id="units" @bind-Value="@_savedProduct.Units" />
+		</p>
 
-	<p>
-		<button type="submit">Submit</button>
-	</p>
-</EditForm>
+		<p>
+			<button type="submit">Save</button>
+		</p>
+	</EditForm>
+}
+
 
 @code
 {
+	bool _formIsVisible;
+
 	Task HandleValidSubmit()
 	{
 		// The product has been modified. You can save the changes here.
 		Console.WriteLine("Product modified: " + _savedProduct.Id);
+		_formIsVisible = false;
 		return Task.CompletedTask;
 	}
 
@@ -83,7 +90,7 @@
 			return Task.CompletedTask;
 		}
 
-		
+		_formIsVisible = true;
 		Console.WriteLine("Open product for modification : " + _savedProduct.Id);
 		return Task.CompletedTask;
 	}
