@@ -1,4 +1,5 @@
 ﻿@page "/"
+<BlazorApp1.Components.ModifyItemComponent @ref="_modifyItemComponent" OnChange="Refresh"></BlazorApp1.Components.ModifyItemComponent>
 <BlazorApp1.Components.NewItemSetupComponent OnProductSubmit="@( async (param) => await InsertNewProduct(param))"></BlazorApp1.Components.NewItemSetupComponent>
 
 <table>
@@ -16,96 +17,66 @@
 			<tr>
 					<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>
 				<td>
-					<BlazorApp1.Components.ModifyItemComponent OnModifyProduct="@( async () => await Modify(item))"></BlazorApp1.Components.ModifyItemComponent>
+					<p><button @onclick="@( async () => await ModifyAsync(item))">Modify</button></p>
 				</td>
 			</tr>
 		}
 	</tbody>
 </table>
 
-@if (_formIsVisible)
-{
-	<EditForm Model="@_productToModify" OnValidSubmit="@(HandleValidSubmit)">
-		<DataAnnotationsValidator />
-		<ValidationSummary />
-
-		<p>
-			<label for="id">ID: </label>
-			<InputText id="id" @bind-Value="@_productToModify.Id" />
-		</p>
-
-		<p>
-			<label for="askingPrice">Asking Price: </label>
-			<InputNumber id="askingPrice" @bind-Value="@_productToModify.AskingPrice" />
-		</p>
-
-		<p>
-			<label for="units">Units: </label>
-			<InputNumber id="units" @bind-Value="@_productToModify.Units" />
-		</p>
-
-		<p>
-			<button type="submit">Save</button>
-		</p>
-	</EditForm>
-}
-
 
 @code
 {
-	bool _formIsVisible;
-
-	Task HandleValidSubmit()
+	void Refresh()
 	{
-		// The product has been modified. You can save the changes here.
-		//Console.WriteLine("Product modified: " + _savedProduct.Id);
-		_formIsVisible = false;
-		_productToModify = _emptyProduct;
-		return Task.CompletedTask;
+		Console.WriteLine("refresh run");
+		StateHasChanged();
+	}
+
+	Components.ModifyItemComponent _modifyItemComponent;
+
+
+	DataModels.Product GetRightProduct(DataModels.Product product)
+	{
+		foreach (var item in ListOfModifiableProducts)
+		{
+			if (item == product)
+			{
+				return item;
+			}
+		}
+		Console.WriteLine("Product not found : " + product.Id);
+		return _emptyProduct;
 	}
 
 
 	List<DataModels.Product> Products = new List<DataModels.Product>();
 	List<DataModels.Product> ListOfModifiableProducts = new List<DataModels.Product>();
 
-	DataModels.Product _productToModify;
 	DataModels.Product _emptyProduct = new DataModels.Product();
+
 
 
 	Task InsertNewProduct(DataModels.Product product)
 	{
 		Products.Add(product);
 		ListOfModifiableProducts.Add(product);
-		//SaveProduct(product);
 		return Task.CompletedTask;
 	}
 
-	// void SaveProduct(DataModels.Product product)
+	// Task Modify(DataModels.Product product)
 	// {
-	// 	_savedProduct = product;
-	// 	Console.WriteLine("product saved: " + product.Id);
+	// 	var selectedProduct = GetRightProduct(product);
+	// 	_modifyItemComponent.ModifyAsync(selectedProduct);
+	// 	Console.WriteLine("product selected: " + selectedProduct);
+	// 	return Task.CompletedTask;
 	// }
 
-	Task Modify(DataModels.Product product)
+	async Task ModifyAsync(DataModels.Product product)
 	{
-		if (product == null)
-		{
-			Console.WriteLine("No saved product");
-			return Task.CompletedTask;
-		}
-
-		foreach (var item in ListOfModifiableProducts)
-		{
-			if(item == product)
-			{
-				_formIsVisible = true;
-				_productToModify = item;
-				Console.WriteLine("Open product for modification : " + item.Id);
-				return Task.CompletedTask;
-			}
-		}
-
-		Console.WriteLine("didn't find product : " + product.Id);
-		return Task.CompletedTask;
+		var selectedProduct = GetRightProduct(product);
+		await _modifyItemComponent.ModifyAsync(selectedProduct);
+		Console.WriteLine("product selected: " + selectedProduct);
 	}
+
 }

@@ -1,7 +1,63 @@
-﻿<p><button @onclick="( async () => await OnModifyProduct.InvokeAsync() )">Modify</button></p>
+﻿@if (_formIsVisible)
+{
+	<EditForm Model="@ProductToModify" OnValidSubmit="@(HandleValidSubmit)">
+		<DataAnnotationsValidator />
+		<ValidationSummary />
+
+		<p>
+			<label for="id">ID: </label>
+		<InputText id="id" @bind-Value="@ProductToModify.Id" />
+		</p>
+
+		<p>
+			<label for="askingPrice">Asking Price: </label>
+		<InputNumber id="askingPrice" @bind-Value="@ProductToModify.AskingPrice" />
+		</p>
+
+		<p>
+			<label for="units">Units: </label>
+		<InputNumber id="units" @bind-Value="@ProductToModify.Units" />
+		</p>
+
+		<p>
+			<button type="submit">Save</button>
+		</p>
+	</EditForm>
+}
 
 @code 
 {
 	[Parameter]
-	public EventCallback<DataModels.Product> OnModifyProduct { get; set; }	
+	public EventCallback OnChange { get; set; }
+
+	[Parameter]
+	public DataModels.Product ProductToModify { get; set; }
+
+	public DataModels.Product _emptyProduct = new DataModels.Product();
+
+	bool _formIsVisible;
+
+	Task HandleValidSubmit()
+	{
+		Console.WriteLine("Product modified: " + ProductToModify.Id);
+		_formIsVisible = false;
+		ProductToModify = _emptyProduct;
+		return Task.CompletedTask;
+	}
+
+
+	public async Task ModifyAsync(DataModels.Product product)
+	{
+		Console.WriteLine("Modify run");
+		if (product == null)
+		{
+			Console.WriteLine("No saved product");
+			return;
+		}
+
+		_formIsVisible = true;
+		ProductToModify = product;
+		await OnChange.InvokeAsync();
+		Console.WriteLine("Open product for modification : " + product.Id);
+	}
 }
