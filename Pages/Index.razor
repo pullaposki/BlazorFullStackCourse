@@ -14,12 +14,10 @@
 		@foreach (var item in Products)
 		{
 			<tr>
-				<!--For each item in Products, a ListItemComponent is created with a ListProduct parameter set to the current item.-->
-				<td><BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent></td>
-				<td><BlazorApp1.Components.ModifyItemComponent OnModifyProduct="@( async () => await Modify())"></BlazorApp1.Components.ModifyItemComponent></td>
-
-				
-
+					<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>
+				<td>
+					<BlazorApp1.Components.ModifyItemComponent OnModifyProduct="@( async () => await Modify(item))"></BlazorApp1.Components.ModifyItemComponent>
+				</td>
 			</tr>
 		}
 	</tbody>
@@ -27,23 +25,23 @@
 
 @if (_formIsVisible)
 {
-	<EditForm Model="@_savedProduct" OnValidSubmit="@(HandleValidSubmit)">
+	<EditForm Model="@_productToModify" OnValidSubmit="@(HandleValidSubmit)">
 		<DataAnnotationsValidator />
 		<ValidationSummary />
 
 		<p>
 			<label for="id">ID: </label>
-			<InputText id="id" @bind-Value="@_savedProduct.Id" />
+			<InputText id="id" @bind-Value="@_productToModify.Id" />
 		</p>
 
 		<p>
 			<label for="askingPrice">Asking Price: </label>
-			<InputNumber id="askingPrice" @bind-Value="@_savedProduct.AskingPrice" />
+			<InputNumber id="askingPrice" @bind-Value="@_productToModify.AskingPrice" />
 		</p>
 
 		<p>
 			<label for="units">Units: </label>
-			<InputNumber id="units" @bind-Value="@_savedProduct.Units" />
+			<InputNumber id="units" @bind-Value="@_productToModify.Units" />
 		</p>
 
 		<p>
@@ -60,38 +58,54 @@
 	Task HandleValidSubmit()
 	{
 		// The product has been modified. You can save the changes here.
-		Console.WriteLine("Product modified: " + _savedProduct.Id);
+		//Console.WriteLine("Product modified: " + _savedProduct.Id);
 		_formIsVisible = false;
+		_productToModify = _emptyProduct;
 		return Task.CompletedTask;
 	}
 
-	List<DataModels.Product> Products = new List<DataModels.Product>();
 
-	DataModels.Product _savedProduct;
+	List<DataModels.Product> Products = new List<DataModels.Product>();
+	List<DataModels.Product> ListOfModifiableProducts = new List<DataModels.Product>();
+
+	DataModels.Product _productToModify;
+	DataModels.Product _emptyProduct = new DataModels.Product();
+
 
 	Task InsertNewProduct(DataModels.Product product)
 	{
 		Products.Add(product);
-		SaveProduct(product);
+		ListOfModifiableProducts.Add(product);
+		//SaveProduct(product);
 		return Task.CompletedTask;
 	}
 
-	void SaveProduct(DataModels.Product product)
-	{
-		_savedProduct = product;
-		Console.WriteLine("product saved: " + product.Id);
-	}
+	// void SaveProduct(DataModels.Product product)
+	// {
+	// 	_savedProduct = product;
+	// 	Console.WriteLine("product saved: " + product.Id);
+	// }
 
-	Task Modify()
+	Task Modify(DataModels.Product product)
 	{
-		if(_savedProduct == null)
+		if (product == null)
 		{
 			Console.WriteLine("No saved product");
 			return Task.CompletedTask;
 		}
 
-		_formIsVisible = true;
-		Console.WriteLine("Open product for modification : " + _savedProduct.Id);
+		foreach (var item in ListOfModifiableProducts)
+		{
+			if(item == product)
+			{
+				_formIsVisible = true;
+				_productToModify = item;
+				Console.WriteLine("Open product for modification : " + item.Id);
+				return Task.CompletedTask;
+			}
+		}
+
+		Console.WriteLine("didn't find product : " + product.Id);
 		return Task.CompletedTask;
 	}
 }

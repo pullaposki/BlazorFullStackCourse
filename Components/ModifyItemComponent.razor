@@ -1,13 +1,7 @@
-﻿<p><button @onclick="FireModifyEvent">Modify</button></p>
+﻿<p><button @onclick="( async () => await OnModifyProduct.InvokeAsync() )">Modify</button></p>
 
 @code 
 {
 	[Parameter]
-	public EventCallback<DataModels.Product> OnModifyProduct { get; set; }
-
-
-	async Task FireModifyEvent()
-	{
-		await OnModifyProduct.InvokeAsync();
-	}
+	public EventCallback<DataModels.Product> OnModifyProduct { get; set; }	
 }
