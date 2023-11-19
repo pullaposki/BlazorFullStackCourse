@@ -19,7 +19,7 @@
 				<td>
 					<p>
 						<button @onclick="@( async () => await TriggerModifyAsync(item))">Modify</button>
-						<button @onclick="@( () => Delete(item))">Delete</button>
+						<button class="btn btn-secondary" @onclick="@( () => Delete(item))">Delete</button>
 					</p>
 				</td>
 			</tr>
