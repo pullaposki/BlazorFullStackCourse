@@ -17,7 +17,10 @@
 			<tr>
 					<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>
 				<td>
-					<p><button @onclick="@( async () => await ModifyAsync(item))">Modify</button></p>
+					<p>
+						<button @onclick="@( async () => await TriggerModifyAsync(item))">Modify</button>
+						<button @onclick="@( () => Delete(item))">Delete</button>
+					</p>
 				</td>
 			</tr>
 		}
@@ -27,18 +30,16 @@
 
 @code
 {
-	void Refresh()
-	{
-		Console.WriteLine("refresh run");
-		StateHasChanged();
-	}
-
 	Components.ModifyItemComponent _modifyItemComponent;
 
+	List<DataModels.Product> Products = new List<DataModels.Product>();
+	List<DataModels.Product> ListOfModifiableProducts = new List<DataModels.Product>();
 
-	DataModels.Product GetRightProduct(DataModels.Product product)
+	DataModels.Product _emptyProduct = new DataModels.Product();
+
+	DataModels.Product GetRightProduct(List<DataModels.Product> listOfProducts,DataModels.Product product)
 	{
-		foreach (var item in ListOfModifiableProducts)
+		foreach (var item in listOfProducts)
 		{
 			if (item == product)
 			{
@@ -49,34 +50,38 @@
 		return _emptyProduct;
 	}
 
-
-	List<DataModels.Product> Products = new List<DataModels.Product>();
-	List<DataModels.Product> ListOfModifiableProducts = new List<DataModels.Product>();
-
-	DataModels.Product _emptyProduct = new DataModels.Product();
-
-
+	void Refresh()
+	{
+		Console.WriteLine("refresh run");
+		StateHasChanged();
+	}
 
 	Task InsertNewProduct(DataModels.Product product)
 	{
 		Products.Add(product);
 		ListOfModifiableProducts.Add(product);
 		return Task.CompletedTask;
-	}
+	}	
 
-	// Task Modify(DataModels.Product product)
-	// {
-	// 	var selectedProduct = GetRightProduct(product);
-	// 	_modifyItemComponent.ModifyAsync(selectedProduct);
-	// 	Console.WriteLine("product selected: " + selectedProduct);
-	// 	return Task.CompletedTask;
-	// }
-
-	async Task ModifyAsync(DataModels.Product product)
+	async Task TriggerModifyAsync(DataModels.Product product)
 	{
-		var selectedProduct = GetRightProduct(product);
+		var selectedProduct = GetRightProduct(ListOfModifiableProducts,product);
 		await _modifyItemComponent.ModifyAsync(selectedProduct);
 		Console.WriteLine("product selected: " + selectedProduct);
+	}
+
+	Task Delete(DataModels.Product product)
+	{
+		var selectedProduct = GetRightProduct(Products, product);
+		if(selectedProduct == null)
+		{
+			Console.WriteLine("no selected product");
+			return Task.CompletedTask;
+		}
+
+		Products.Remove(selectedProduct);
+		ListOfModifiableProducts.Remove(selectedProduct);
+		return Task.CompletedTask;
 	}
 
 }
