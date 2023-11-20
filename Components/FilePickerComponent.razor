@@ -1,0 +1,24 @@
+﻿<h3>FilePickerComponent</h3>
+
+<p>
+	<!--This onclick is JS not Blazor-->
+	<button onclick="document.getElementById('filePicker').click()">Pick a file</button>
+
+	<InputFile id="filePicker" OnChange="@(async (args) => await OnInputFileChange(args))" hidden multiple></InputFile>
+</p>
+
+@code
+{
+	async Task OnInputFileChange(InputFileChangeEventArgs e)
+	{
+		foreach (var file in e.GetMultipleFiles(e.FileCount))
+		{
+			if (file.ContentType == "image/png")
+			{
+				var imageFile = await file.RequestImageFileAsync(file.ContentType, 450, 450);
+			}
+
+			var selectedFile = file.OpenReadStream(file.Size);
+		}
+	}
+}

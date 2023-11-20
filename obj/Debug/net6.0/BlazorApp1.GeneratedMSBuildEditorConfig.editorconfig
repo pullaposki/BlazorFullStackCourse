@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Components/FilePickerComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaWxlUGlja2VyQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Janne/Documents/FullStack/BlazorWebAssemblyApp2/BlazorApp1/Components/JavaScriptTestComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xKYXZhU2NyaXB0VGVzdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
