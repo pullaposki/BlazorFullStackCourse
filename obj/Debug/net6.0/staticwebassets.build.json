@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AyZKSal5I4taa583bwM1QMUr+R+gbL/TuEmw1Bp2/fo=",
+  "Hash": "5BNxMEFdO5vwsyaqZ0M8QRcy6plb6OUG+wCTl5pLwFM=",
   "Source": "BlazorApp1",
   "BasePath": "/",
   "Mode": "Root",
@@ -6832,6 +6832,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\wwwroot\\app.css",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
       "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\wwwroot\\css\\app.css",

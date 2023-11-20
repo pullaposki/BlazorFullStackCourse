@@ -1,4 +1,6 @@
 ﻿@page "/"
+<BlazorApp1.Components.JavaScriptTestComponent></BlazorApp1.Components.JavaScriptTestComponent>
+
 <BlazorApp1.Components.ModifyItemComponent @ref="_modifyItemComponent" OnChange="Refresh"></BlazorApp1.Components.ModifyItemComponent>
 <BlazorApp1.Components.NewItemSetupComponent OnProductSubmit="@( async (param) => await InsertNewProduct(param))"></BlazorApp1.Components.NewItemSetupComponent>
 

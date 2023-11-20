@@ -1,0 +1,22 @@
+﻿@inject IJSRuntime js
+
+<h3>JavaScriptTestComponent</h3>
+
+<p><button @onclick="@( async () => await RunTestFunction() )">Run custom JS function</button></p>
+<p>@_forDisplay</p>
+
+
+<!--The js.InvokeVoidAsync method is used to call a JavaScript function from C# code. In this case, it is used to call the localStorage.setItem method with the specified key-value pair.-->
+<p><button @onclick="@( async ()=> await js.InvokeVoidAsync("localStorage.setItem", "key1", "testValue1") )">Store value & key using JS</button></p>
+
+@code
+{
+	double _forDisplay;
+
+	async Task RunTestFunction()
+	{
+		_forDisplay = await js.InvokeAsync<double>("TestFunction", 5, 5);
+	}
+}
+
+<p>---------</p>
