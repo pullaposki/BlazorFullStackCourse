@@ -1,0 +1,89 @@
+﻿<h3>List App</h3>
+
+
+<BlazorApp1.Components.ModifyItemComponent @ref="_modifyItemComponent" OnChange="Refresh"></BlazorApp1.Components.ModifyItemComponent>
+<BlazorApp1.Components.NewItemSetupComponent OnProductSubmit="@( async (param) => await InsertNewProduct(param))"></BlazorApp1.Components.NewItemSetupComponent>
+
+<table>
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Asking Price</td>
+			<td>Units</td>
+			<td>Total</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Products)
+		{
+			<tr>
+				<BlazorApp1.Components.ListItemComponent ListProduct="@item"></BlazorApp1.Components.ListItemComponent>
+				<td>
+					<p>
+						<button @onclick="@( async () => await TriggerModifyAsync(item))">Modify</button>
+						<button class="btn btn-secondary" @onclick="@( () => Delete(item))">Delete</button>
+					</p>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+@code
+{
+	Components.ModifyItemComponent _modifyItemComponent;
+
+	List<DataModels.Product> Products = new List<DataModels.Product>();
+	List<DataModels.Product> ListOfModifiableProducts = new List<DataModels.Product>();
+
+	DataModels.Product _emptyProduct = new DataModels.Product();
+
+	DataModels.Product GetRightProduct(List<DataModels.Product> listOfProducts, DataModels.Product product)
+	{
+		foreach (var item in listOfProducts)
+		{
+			if (item == product)
+			{
+				return item;
+			}
+		}
+		Console.WriteLine("Product not found : " + product.Id);
+		return _emptyProduct;
+	}
+
+	void Refresh()
+	{
+		Console.WriteLine("refresh run");
+		StateHasChanged();
+	}
+
+	Task InsertNewProduct(DataModels.Product product)
+	{
+		Products.Add(product);
+		ListOfModifiableProducts.Add(product);
+		return Task.CompletedTask;
+	}
+
+	async Task TriggerModifyAsync(DataModels.Product product)
+	{
+		var selectedProduct = GetRightProduct(ListOfModifiableProducts, product);
+		await _modifyItemComponent.ModifyAsync(selectedProduct);
+		Console.WriteLine("product selected: " + selectedProduct);
+	}
+
+	Task Delete(DataModels.Product product)
+	{
+		var selectedProduct = GetRightProduct(Products, product);
+		if (selectedProduct == null)
+		{
+			Console.WriteLine("no selected product");
+			return Task.CompletedTask;
+		}
+
+		Products.Remove(selectedProduct);
+		ListOfModifiableProducts.Remove(selectedProduct);
+		return Task.CompletedTask;
+	}
+
+}
