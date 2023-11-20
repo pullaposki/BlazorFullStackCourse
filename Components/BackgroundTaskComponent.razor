@@ -1,0 +1,27 @@
+﻿<h3>BackgroundTaskComponent</h3>
+
+<p>@_forDisplay</p>
+
+@code
+{
+	int _forDisplay;
+
+	protected override Task OnInitializedAsync()
+	{
+		RunInBackgroundAsync();
+		return base.OnInitializedAsync();
+	}
+
+	async Task RunInBackgroundAsync()
+	{
+		var random = new Random();
+
+		while (true)
+		{
+			await Task.Delay(2000);
+
+			_forDisplay = random.Next(1, 100);
+			StateHasChanged();
+		}
+	}
+}
