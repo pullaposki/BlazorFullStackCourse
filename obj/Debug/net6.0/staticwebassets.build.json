@@ -1,17 +1,36 @@
 {
   "Version": 1,
-  "Hash": "5BNxMEFdO5vwsyaqZ0M8QRcy6plb6OUG+wCTl5pLwFM=",
+  "Hash": "MEAMVsQc+MjMpCGmQRDmD5/3zHONsWkyWutI0L4XPBg=",
   "Source": "BlazorApp1",
   "BasePath": "/",
   "Mode": "Root",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\RazorClassLibrary1.csproj",
+      "Version": 2,
+      "Source": "RazorClassLibrary1",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "BlazorApp1\\wwwroot",
       "Source": "BlazorApp1",
       "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\wwwroot\\",
       "BasePath": "/",
+      "Pattern": "**"
+    },
+    {
+      "Name": "RazorClassLibrary1\\wwwroot",
+      "Source": "RazorClassLibrary1",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\wwwroot\\",
+      "BasePath": "_content/RazorClassLibrary1",
       "Pattern": "**"
     }
   ],
@@ -695,6 +714,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Janne\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.23\\runtimes\\browser-wasm\\lib\\net6.0\\netstandard.dll"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\RazorClassLibrary1.dll",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Computed",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/RazorClassLibrary1.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\bin\\Debug\\net6.0\\RazorClassLibrary1.dll"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\RazorClassLibrary1.pdb",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Computed",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/RazorClassLibrary1.pdb",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "symbol",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\bin\\Debug\\net6.0\\RazorClassLibrary1.pdb"
     },
     {
       "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.AppContext.dll",
@@ -3451,6 +3504,23 @@
       "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.WebClient.dll"
     },
     {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\obj\\Debug\\net6.0\\build-gz\\+QOlXUit.gz",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Computed",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/RazorClassLibrary1.pdb.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\RazorClassLibrary1.pdb",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\RazorClassLibrary1.pdb"
+    },
+    {
       "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\obj\\Debug\\net6.0\\build-gz\\+wIjGxeR.gz",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
@@ -4945,6 +5015,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.dll"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\obj\\Debug\\net6.0\\build-gz\\jT3EUgRG.gz",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Computed",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/RazorClassLibrary1.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\RazorClassLibrary1.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\bin\\Debug\\net6.0\\wwwroot\\_framework\\RazorClassLibrary1.dll"
     },
     {
       "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\BlazorApp1\\obj\\Debug\\net6.0\\build-gz\\JUp3EaPn.gz",
@@ -7104,6 +7191,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RazorClassLibrary1.bundle.scp.css",
+      "SourceId": "RazorClassLibrary1",
+      "SourceType": "Project",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/RazorClassLibrary1",
+      "RelativePath": "RazorClassLibrary1.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RazorClassLibrary1.bundle.scp.css"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\wwwroot\\JavaScript1.js",
+      "SourceId": "RazorClassLibrary1",
+      "SourceType": "Project",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\wwwroot\\",
+      "BasePath": "_content/RazorClassLibrary1",
+      "RelativePath": "JavaScript1.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JavaScript1.js"
+    },
+    {
+      "Identity": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\wwwroot\\StyleSheet1.css",
+      "SourceId": "RazorClassLibrary1",
+      "SourceType": "Project",
+      "ContentRoot": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\wwwroot\\",
+      "BasePath": "_content/RazorClassLibrary1",
+      "RelativePath": "StyleSheet1.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StyleSheet1.css"
     }
   ]
 }

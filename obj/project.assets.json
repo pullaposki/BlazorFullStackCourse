@@ -498,6 +498,19 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "RazorClassLibrary1/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.23"
+        },
+        "compile": {
+          "bin/placeholder/RazorClassLibrary1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RazorClassLibrary1.dll": {}
+        }
       }
     },
     "net6.0/browser-wasm": {
@@ -990,6 +1003,19 @@
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "RazorClassLibrary1/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.23"
+        },
+        "compile": {
+          "bin/placeholder/RazorClassLibrary1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RazorClassLibrary1.dll": {}
         }
       }
     }
@@ -1753,12 +1779,18 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "RazorClassLibrary1/1.0.0": {
+      "type": "project",
+      "path": "../RazorClassLibrary1/RazorClassLibrary1.csproj",
+      "msbuildProject": "../RazorClassLibrary1/RazorClassLibrary1.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.23",
-      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.23"
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.23",
+      "RazorClassLibrary1 >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1794,7 +1826,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\RazorClassLibrary1.csproj": {
+              "projectPath": "F:\\Janne\\Documents\\FullStack\\BlazorWebAssemblyApp2\\RazorClassLibrary1\\RazorClassLibrary1.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

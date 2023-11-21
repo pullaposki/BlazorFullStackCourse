@@ -817,3 +817,12 @@ F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\obj\Debug\net6.0\B
 F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\obj\Debug\net6.0\refint\BlazorApp1.dll
 F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\obj\Debug\net6.0\BlazorApp1.pdb
 F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\obj\Debug\net6.0\ref\BlazorApp1.dll
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\wwwroot\_framework\RazorClassLibrary1.dll
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\wwwroot\_framework\RazorClassLibrary1.pdb
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\wwwroot\_framework\RazorClassLibrary1.pdb.gz
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\wwwroot\_framework\RazorClassLibrary1.dll.gz
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\RazorClassLibrary1.staticwebassets.runtime.json
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\RazorClassLibrary1.dll
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\bin\Debug\net6.0\RazorClassLibrary1.pdb
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\obj\Debug\net6.0\build-gz\jT3EUgRG.gz
+F:\Janne\Documents\FullStack\BlazorWebAssemblyApp2\BlazorApp1\obj\Debug\net6.0\build-gz\+QOlXUit.gz
